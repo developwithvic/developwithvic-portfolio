@@ -1,0 +1,223 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<section class="blog">
+
+
+<div class="section-title">
+
+<p>
+Cybersecurity & Engineering Notes
+</p>
+
+
+<h1>
+Developwithvic Blog
+</h1>
+
+<form 
+class="blog-search"
+method="GET"
+action="/blog"
+>
+
+
+<input
+
+type="text"
+
+name="search"
+
+placeholder="Search articles..."
+
+>
+
+
+<button>
+Search
+</button>
+
+
+</form>
+
+
+</div>
+
+
+
+<div class="blog-grid">
+
+
+{% for post in posts %}
+
+
+<div class="blog-card">
+
+
+<span>
+{{ post.category }}
+</span>
+
+
+<h2>
+{{ post.title }}
+</h2>
+
+
+<p>
+{{ post.content | striptags | truncate(180) }}
+</p>
+
+
+<small>
+{{ post.date }}
+</small>
+
+
+<br><br>
+
+
+<a href="/blog/{{ post.slug }}">
+Read Article →
+</a>
+
+
+</div>
+
+
+{% endfor %}
+
+
+</div>
+
+
+</section>
+
+
+<section class="about">
+
+
+<div class="section-title">
+
+
+<p>
+About Me
+</p>
+
+
+<h2>
+Building Secure Digital Systems
+</h2>
+
+
+</div>
+
+
+
+
+<div class="about-container">
+
+
+
+<div class="about-text">
+
+
+<h3>
+Hi, I'm Victor — Developwithvic
+</h3>
+
+
+<p>
+
+I am a Web Developer, Server Engineer,
+and Cybersecurity Specialist focused on
+building secure, scalable, and reliable
+digital systems.
+
+</p>
+
+
+<p>
+
+My work combines modern web technologies,
+Linux infrastructure, deployment automation,
+and security practices to create solutions
+that are fast, efficient, and protected.
+
+</p>
+
+
+<p>
+
+I enjoy transforming ideas into practical
+applications while ensuring performance,
+stability, and security.
+
+</p>
+
+
+
+</div>
+
+
+
+
+
+<div class="about-stats">
+
+
+<div class="stat-card">
+
+<h3>
+3+
+</h3>
+
+<p>
+Engineering Areas
+</p>
+
+</div>
+
+
+
+<div class="stat-card">
+
+<h3>
+24/7
+</h3>
+
+<p>
+Security Mindset
+</p>
+
+</div>
+
+
+
+<div class="stat-card">
+
+<h3>
+∞
+</h3>
+
+<p>
+Learning Growth
+</p>
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+{% endblock %}
